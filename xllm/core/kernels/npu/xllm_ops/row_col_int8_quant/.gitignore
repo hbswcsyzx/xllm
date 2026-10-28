@@ -1,0 +1,9 @@
+rowcol_native.so
+artifacts/
+__pycache__/
+tests/__pycache__/
+/task_submission/
+/task_submission.zip
+/validation_bundle.zip
+/validation_bundle.zip.sha256
+/SUBMISSION.md

@@ -1,0 +1,10 @@
+# Copyright 2026 The xLLM Authors. SPDX-License-Identifier: Apache-2.0
+add_op_to_compiled_list()
+if(BUILD_OPEN_PROJECT)
+  target_sources(op_host_aclnn PRIVATE row_col_int8_quant_def.cpp)
+endif()
+add_ops_compile_options(OP_NAME RowColInt8Quant OPTIONS --cce-auto-sync=off -Wno-deprecated-declarations -Wno-error)
+if(NOT BUILD_OPS_RTY_KERNEL)
+  add_modules_sources(OPTYPE row_col_int8_quant ACLNNTYPE aclnn)
+  target_link_libraries(cust_opmaster PRIVATE ascendcl)
+endif()
